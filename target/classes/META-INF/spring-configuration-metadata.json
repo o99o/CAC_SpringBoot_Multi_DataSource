@@ -1,0 +1,18 @@
+{
+  "groups": [
+    {
+      "name": "spring.datasource.cac",
+      "type": "javax.sql.DataSource",
+      "sourceType": "com.zit.config.datasource.DataSourceCacConfig",
+      "sourceMethod": "public javax.sql.DataSource dbCacDataSource() "
+    },
+    {
+      "name": "spring.datasource.db1",
+      "type": "javax.sql.DataSource",
+      "sourceType": "com.zit.config.datasource.DataSourceDb1Config",
+      "sourceMethod": "public javax.sql.DataSource db1DataSource() "
+    }
+  ],
+  "properties": [],
+  "hints": []
+}

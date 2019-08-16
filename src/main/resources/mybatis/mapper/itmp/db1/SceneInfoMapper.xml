@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zit.itmp.db1.dao.SceneInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.zit.itmp.db1.entity.SceneInfo" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="placeLabel" property="placeLabel" jdbcType="VARCHAR" />
+    <result column="placeScore" property="placeScore" jdbcType="DECIMAL" />
+    <result column="dynamicLabel" property="dynamicLabel" jdbcType="VARCHAR" />
+    <result column="dynamicScore" property="dynamicScore" jdbcType="DECIMAL" />
+    <result column="personLabel" property="personLabel" jdbcType="VARCHAR" />
+    <result column="personScore" property="personScore" jdbcType="DECIMAL" />
+    <result column="personWeight" property="personWeight" jdbcType="DECIMAL" />
+    <result column="vehicleLabel" property="vehicleLabel" jdbcType="VARCHAR" />
+    <result column="vehicleScore" property="vehicleScore" jdbcType="DECIMAL" />
+    <result column="vehicleWeight" property="vehicleWeight" jdbcType="DECIMAL" />
+    <result column="total" property="total" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, placeLabel, placeScore, dynamicLabel, dynamicScore, personLabel, personScore, 
+    personWeight, vehicleLabel, vehicleScore, vehicleWeight, total
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from scene_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from scene_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.zit.itmp.db1.entity.SceneInfo" >
+    insert into scene_info (id, name, placeLabel, 
+      placeScore, dynamicLabel, dynamicScore, 
+      personLabel, personScore, personWeight, 
+      vehicleLabel, vehicleScore, vehicleWeight, 
+      total)
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{placeLabel,jdbcType=VARCHAR}, 
+      #{placeScore,jdbcType=DECIMAL}, #{dynamicLabel,jdbcType=VARCHAR}, #{dynamicScore,jdbcType=DECIMAL}, 
+      #{personLabel,jdbcType=VARCHAR}, #{personScore,jdbcType=DECIMAL}, #{personWeight,jdbcType=DECIMAL}, 
+      #{vehicleLabel,jdbcType=VARCHAR}, #{vehicleScore,jdbcType=DECIMAL}, #{vehicleWeight,jdbcType=DECIMAL}, 
+      #{total,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zit.itmp.db1.entity.SceneInfo" >
+    insert into scene_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="placeLabel != null" >
+        placeLabel,
+      </if>
+      <if test="placeScore != null" >
+        placeScore,
+      </if>
+      <if test="dynamicLabel != null" >
+        dynamicLabel,
+      </if>
+      <if test="dynamicScore != null" >
+        dynamicScore,
+      </if>
+      <if test="personLabel != null" >
+        personLabel,
+      </if>
+      <if test="personScore != null" >
+        personScore,
+      </if>
+      <if test="personWeight != null" >
+        personWeight,
+      </if>
+      <if test="vehicleLabel != null" >
+        vehicleLabel,
+      </if>
+      <if test="vehicleScore != null" >
+        vehicleScore,
+      </if>
+      <if test="vehicleWeight != null" >
+        vehicleWeight,
+      </if>
+      <if test="total != null" >
+        total,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="placeLabel != null" >
+        #{placeLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="placeScore != null" >
+        #{placeScore,jdbcType=DECIMAL},
+      </if>
+      <if test="dynamicLabel != null" >
+        #{dynamicLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="dynamicScore != null" >
+        #{dynamicScore,jdbcType=DECIMAL},
+      </if>
+      <if test="personLabel != null" >
+        #{personLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="personScore != null" >
+        #{personScore,jdbcType=DECIMAL},
+      </if>
+      <if test="personWeight != null" >
+        #{personWeight,jdbcType=DECIMAL},
+      </if>
+      <if test="vehicleLabel != null" >
+        #{vehicleLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleScore != null" >
+        #{vehicleScore,jdbcType=DECIMAL},
+      </if>
+      <if test="vehicleWeight != null" >
+        #{vehicleWeight,jdbcType=DECIMAL},
+      </if>
+      <if test="total != null" >
+        #{total,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zit.itmp.db1.entity.SceneInfo" >
+    update scene_info
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="placeLabel != null" >
+        placeLabel = #{placeLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="placeScore != null" >
+        placeScore = #{placeScore,jdbcType=DECIMAL},
+      </if>
+      <if test="dynamicLabel != null" >
+        dynamicLabel = #{dynamicLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="dynamicScore != null" >
+        dynamicScore = #{dynamicScore,jdbcType=DECIMAL},
+      </if>
+      <if test="personLabel != null" >
+        personLabel = #{personLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="personScore != null" >
+        personScore = #{personScore,jdbcType=DECIMAL},
+      </if>
+      <if test="personWeight != null" >
+        personWeight = #{personWeight,jdbcType=DECIMAL},
+      </if>
+      <if test="vehicleLabel != null" >
+        vehicleLabel = #{vehicleLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleScore != null" >
+        vehicleScore = #{vehicleScore,jdbcType=DECIMAL},
+      </if>
+      <if test="vehicleWeight != null" >
+        vehicleWeight = #{vehicleWeight,jdbcType=DECIMAL},
+      </if>
+      <if test="total != null" >
+        total = #{total,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zit.itmp.db1.entity.SceneInfo" >
+    update scene_info
+    set name = #{name,jdbcType=VARCHAR},
+      placeLabel = #{placeLabel,jdbcType=VARCHAR},
+      placeScore = #{placeScore,jdbcType=DECIMAL},
+      dynamicLabel = #{dynamicLabel,jdbcType=VARCHAR},
+      dynamicScore = #{dynamicScore,jdbcType=DECIMAL},
+      personLabel = #{personLabel,jdbcType=VARCHAR},
+      personScore = #{personScore,jdbcType=DECIMAL},
+      personWeight = #{personWeight,jdbcType=DECIMAL},
+      vehicleLabel = #{vehicleLabel,jdbcType=VARCHAR},
+      vehicleScore = #{vehicleScore,jdbcType=DECIMAL},
+      vehicleWeight = #{vehicleWeight,jdbcType=DECIMAL},
+      total = #{total,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
